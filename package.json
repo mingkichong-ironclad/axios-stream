@@ -7,6 +7,12 @@
     "build": "yarn install && tsc --build tsconfig.json --clean",
     "play": "ts-node src/index.ts"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "axios": "^0.21.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/winston": "^2.4.4"
+  }
 }
