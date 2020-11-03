@@ -8,8 +8,6 @@ const requestConfig = { responseType: 'stream' as const }; // so data is a reada
 
 const output = fs.createWriteStream('test.png');
 
-const input = fs.createReadStream('package.json');
-
 const main = async () => {
   logger.debug('--- START ---');
   try {
