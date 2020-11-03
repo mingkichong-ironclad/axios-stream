@@ -22,6 +22,7 @@ const main = async () => {
       logger.debug(`total so far: ${sum += chunk.length}`);
     }
     output.close();
+    logger.info(`${sum} bytes written to '${output.path}'`);
   } catch (err) {
     logger.error('ERR', err);
   }
