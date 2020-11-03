@@ -13,10 +13,7 @@ const main = async () => {
   try {
     const response = await axios.get(fileUrl, requestConfig);
     const { status, statusText, headers, config, request } = response;
-    logger.info(status);
-    logger.info(statusText);
-    logger.info(JSON.stringify(headers, null, 2));
-    logger.info(JSON.stringify(config, null, 2));
+    logger.info(JSON.stringify({ status, statusText, headers, config }, null, 2));
 
     let sum = 0;
     for await (const chunk of (response.data as NodeJS.ReadableStream)) {
