@@ -11,12 +11,14 @@ const output = fs.createWriteStream('test.png');
 const main = async () => {
   logger.debug('--- START ---');
   try {
-    const { data, status, statusText, headers, config, request } = await axios.get(fileUrl, requestConfig);
+    const response = await axios.get(fileUrl, requestConfig);
+    const { status, statusText, headers, config, request } = response;
     logger.info(status);
     logger.info(statusText);
     logger.info(JSON.stringify(headers, null, 2));
     logger.info(JSON.stringify(config, null, 2));
 
+    const data: NodeJS.ReadableStream = response.data;
     let sum = 0;
     data.on('data', (chunk: any) => {
       console.log(`Received ${chunk.length} bytes of data.`);
@@ -27,8 +29,6 @@ const main = async () => {
   } catch (err) {
     logger.error('ERR', err);
   }
-
-
   logger.debug('---  END  ---');
 };
 
